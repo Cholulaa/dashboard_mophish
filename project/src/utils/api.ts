@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const API_URL = 'http://99.80.127.16/api';
+// Base API publique Render
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: API_URL,
   withCredentials: true,
 });
 
