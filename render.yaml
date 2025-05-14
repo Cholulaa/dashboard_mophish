@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: mophish-api
+    env: python
+    plan: free
+    region: frankfurt
+    rootDir: api
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 4000
+    healthCheckPath: /api/ping
+    envVars:
+      - key: PORT
+        value: 4000
+      - key: SESSION_SECRET
+        value: changeme-super-secret
